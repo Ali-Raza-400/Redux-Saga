@@ -9,8 +9,9 @@ export const cartData =(data=[],action)=>{
         
         case REMOVE_TO_CART:
             console.warn("remove from card condtion ",action);
-            data.length=data.length?data.length-1:[];
-        return [...data];
+            // data.length=data.length?data.length-1:[];
+            const remainingItem =data.filter((item)=>item.id!==action.data)
+        return [...remainingItem];
         case CLEAR_TO_CART:
             console.warn("Clear card condtion ",action);
             data=[];
